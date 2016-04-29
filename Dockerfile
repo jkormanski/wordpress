@@ -1,6 +1,4 @@
-# grr, ENTRYPOINT resets CMD now
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["apache2-foreground"]
+FROM php:5.6-apache
 
 #USER root
 ADD run.sh /run.sh

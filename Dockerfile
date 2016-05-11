@@ -2,6 +2,11 @@ FROM php:5.6-apache
 
 RUN a2enmod rewrite expires
 
+USER root
+ADD run.sh /run.sh
+RUN chmod +x /*.sh
+CMD ["/run.sh"]
+
 # install the PHP extensions we need
 #RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
 #	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
@@ -35,8 +40,3 @@ COPY docker-entrypoint.sh /entrypoint.sh
 # grr, ENTRYPOINT resets CMD now
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
-
-USER root
-ADD run.sh /run.sh
-RUN chmod +x /*.sh
-CMD ["/run.sh"]

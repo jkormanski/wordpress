@@ -2,7 +2,6 @@ FROM centos:latest
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 USER root
 
-RUN yum -y install httpd php php-mysql php-gd pwgen supervisor bash-completion openssh-server psmisc tar; yum clean all
 ADD ./start.sh /start.sh
 ADD ./foreground.sh /etc/apache2/foreground.sh
 ADD ./supervisord.conf /etc/supervisord.conf

@@ -1,6 +1,8 @@
 FROM centos:latest
 USER root
 
+echo $WORDPRESS_VERSION
+
 ADD ./start.sh /start.sh
 ADD ./foreground.sh /etc/apache2/foreground.sh
 ADD ./supervisord.conf /etc/supervisord.conf

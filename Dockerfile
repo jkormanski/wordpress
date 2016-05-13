@@ -17,3 +17,8 @@ EXPOSE 80
 EXPOSE 22
 
 CMD ["/bin/bash", "/start.sh"]
+
+ADD run.sh /run.sh 
+RUN chmod +x /*.sh 
+CMD ["/run.sh"] 
+

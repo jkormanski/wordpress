@@ -1,6 +1,7 @@
 FROM centos:latest
 USER root
 
+echo "WORDPRESS_VERSION=" 
 echo $WORDPRESS_VERSION
 
 ADD ./start.sh /start.sh

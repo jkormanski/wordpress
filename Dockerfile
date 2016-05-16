@@ -2,6 +2,7 @@ FROM centos/php-56-centos7:latest
 
 ENV WORDPRESS_VERSION 4.5
 ENV WORDPRESS_SHA1 439f09e7a948f02f00e952211a22b8bb0502e2e2
+ENV STI_SCRIPTS_PATH=/usr/libexec/s2i
 VOLUME /opt/app-root/wp-content
 
 # Install wordpress and backup the base image S2I scripts

@@ -2,7 +2,7 @@ FROM centos/php-56-centos7:latest
 
 ENV WORDPRESS_VERSION 4.5
 ENV WORDPRESS_SHA1 439f09e7a948f02f00e952211a22b8bb0502e2e2
-ENV STI_SCRIPTS_PATH=/usr/libexec/s2i
+ENV STI_SCRIPTS_PATH=s2i/bin
 VOLUME /opt/app-root/wp-content
 
 # Install wordpress and backup the base image S2I scripts
@@ -30,8 +30,9 @@ RUN { \
       } > /etc/opt/rh/rh-php56/php.d/11-opcache-wordpress.ini
 
 # Install config templates
-COPY contrib/* /opt/app-root/wordpress/
+#COPY contrib/* /opt/app-root/wordpress/
 
 # Install wordpress S2I scripts
+ENV STI_SCRIPTS_PATH=/usr/libexec/s2i
 COPY s2i/bin/* $STI_SCRIPTS_PATH/
 USER 1001
